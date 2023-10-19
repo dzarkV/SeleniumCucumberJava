@@ -1,0 +1,40 @@
+plugins {
+    id 'java'
+}
+
+group 'org.dzarkv'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    seleniumVersion = '4.7.2'
+    cucumberVersion = '7.14.0'
+    junitVersion = '7.14.0'
+    junitJupiterVersion = '5.9.1'
+    slf4jVersion = '1.7.36'
+    webDriverManagerVersion = '5.5.3'
+}
+
+dependencies {
+    testImplementation "org.junit.jupiter:junit-jupiter-api:${junitJupiterVersion}"
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+    // https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java
+    implementation "org.seleniumhq.selenium:selenium-java:${seleniumVersion}"
+    // https://mvnrepository.com/artifact/io.cucumber/cucumber-java
+    implementation "io.cucumber:cucumber-java:${cucumberVersion}"
+    // https://mvnrepository.com/artifact/io.cucumber/cucumber-junit
+    testImplementation "io.cucumber:cucumber-junit:${junitVersion}"
+    // https://mvnrepository.com/artifact/org.slf4j/slf4j-simple
+    testImplementation "org.slf4j:slf4j-simple:${slf4jVersion}"
+    // WebDriverManager
+    implementation "io.github.bonigarcia:webdrivermanager:${webDriverManagerVersion}"
+}
+
+test {
+    useJUnitPlatform()
+}
