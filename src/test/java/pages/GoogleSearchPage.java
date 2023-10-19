@@ -1,30 +1,22 @@
 package pages;
 
-import io.cucumber.java.AfterAll;
-import io.cucumber.java.BeforeAll;
-import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 
-public class GoogleSearchPage {
 
-    protected static WebDriver driver;
+public class GoogleSearchPage extends BasePage {
 
-    @BeforeAll
-    public static void setupDriver(){
-        ChromeOptions options =  new ChromeOptions();
-        options.addArguments("--remote-allow-origins=*"); // fix to "org.openqa.selenium.remote.http.ConnectionFailedException: Unable to establish websocket connection" error
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver(options);
+//    private static String searchButton = "//div[@class='FPdoLc lJ9FBc']/descendant::input[@value='Buscar con Google']";
+    private static String searchButton = "//div[@class='lJ9FBc']//input[@name='btnK']";
+    private static String searchTextField = "//textarea[@name='q']";
+
+    public void navigateToGoogleSearch(){
+        navigateTo("https://www.google.com");
     }
 
-    @AfterAll
-    public static void closeBrowser(){
-        driver.quit();
+    public void enterCriteriaTextInSearchField(String criteria){
+        writer(searchTextField, criteria);
     }
 
-    public static void navigateTo(String url){
-        driver.get(url);
+    public void clickSearchButton(){
+        clickElement(searchButton);
     }
 }

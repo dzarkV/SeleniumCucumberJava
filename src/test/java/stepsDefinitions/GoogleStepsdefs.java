@@ -3,22 +3,21 @@ package stepsDefinitions;
 import io.cucumber.java.en.*;
 import pages.GoogleSearchPage;
 
-import static pages.GoogleSearchPage.navigateTo;
-
 
 public class GoogleStepsdefs {
 
+    GoogleSearchPage google = new GoogleSearchPage();
     @Given("^I am on the Google search page$")
     public void navigateToGoogleSearchPage(){
-        navigateTo("https://www.google.com");
+        google.navigateToGoogleSearch();
     };
     @When("^I enter a search criteria$")
     public void enterSearchCriteria(){
-        System.out.println("When");
+        google.enterCriteriaTextInSearchField("Messi campeao do mundo");
     };
     @And("^click on the search button$")
     public void clickOnTheSearchButton(){
-        System.out.println("And");
+        google.clickSearchButton();
     };
     @Then("^the results match the criteria$")
     public void resultsMatchTheCriteria(){
