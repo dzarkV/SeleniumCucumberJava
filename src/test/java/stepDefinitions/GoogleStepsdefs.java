@@ -1,4 +1,4 @@
-package stepsDefinitions;
+package stepDefinitions;
 
 import io.cucumber.java.en.*;
 import pages.GoogleSearchPage;

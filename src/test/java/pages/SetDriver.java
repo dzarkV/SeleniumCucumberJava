@@ -3,6 +3,7 @@ package pages;
 import io.cucumber.java.AfterAll;
 import io.cucumber.java.BeforeAll;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -24,10 +25,5 @@ public class SetDriver {
     public static void closeBrowser(){
         driver.quit();
     }
-
-    public static WebDriver withDriver(){
-        return driver;
-    }
-
 
 }
