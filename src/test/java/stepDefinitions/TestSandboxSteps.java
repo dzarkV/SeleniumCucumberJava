@@ -2,14 +2,17 @@ package stepDefinitions;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
+import pages.TestSandboxPage;
 
 public class TestSandboxSteps {
-    @Given("I navigate to the sandbox page")
+
+    TestSandboxPage sandboxPage = new TestSandboxPage();
+    @Given("^I navigate to the sandbox page$")
     public void iNavigateToTheSandboxPage() {
-        System.out.println("Given sandbox");
+        sandboxPage.navigateToSandbox();
     }
-    @And("select a value from the dropdown")
+    @And("^select a value from the dropdown$")
     public void selectAValueFromTheDropdown() {
-        System.out.println("And sandbox");
+        sandboxPage.selectCategory("2");
     }
 }

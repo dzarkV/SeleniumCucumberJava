@@ -32,12 +32,17 @@ public class BasePage {
         findElement(xpath).sendKeys(textToWrite);
     }
 
-    public void selectFromDropdownByValue(String xpath, String valueToSelect){
+    public static void selectFromDropdownByValue(String xpath, String valueToSelect){
         Select dropdown = new Select(findElement(xpath));
         dropdown.selectByValue(valueToSelect);
     }
 
-    public void selectFromDropdownByIndex(String xpath, int valueToSelect){
+    public static void selectFromDropdownByText(String xpath, String valueToSelect){
+        Select dropdown = new Select(findElement(xpath));
+        dropdown.selectByVisibleText(valueToSelect);
+    }
+
+    public static void selectFromDropdownByIndex(String xpath, int valueToSelect){
         Select dropdown = new Select(findElement(xpath));
         dropdown.selectByIndex(valueToSelect);
     }
