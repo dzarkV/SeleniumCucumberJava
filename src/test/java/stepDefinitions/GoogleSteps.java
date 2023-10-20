@@ -4,7 +4,7 @@ import io.cucumber.java.en.*;
 import pages.GoogleSearchPage;
 
 
-public class GoogleStepsdefs {
+public class GoogleSteps {
 
     GoogleSearchPage google = new GoogleSearchPage();
     @Given("^I am on the Google search page$")
