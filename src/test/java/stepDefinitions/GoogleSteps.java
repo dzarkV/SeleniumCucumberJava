@@ -1,6 +1,7 @@
 package stepDefinitions;
 
 import io.cucumber.java.en.*;
+import org.junit.jupiter.api.Assertions;
 import pages.GoogleSearchPage;
 
 
@@ -13,7 +14,7 @@ public class GoogleSteps {
     };
     @When("^I enter a search criteria$")
     public void enterSearchCriteria(){
-        google.enterCriteriaTextInSearchField("Messi campeao do mundo");
+        google.enterCriteriaTextInSearchField("Spotify");
     };
     @And("^click on the search button$")
     public void clickOnTheSearchButton(){
@@ -21,6 +22,9 @@ public class GoogleSteps {
     };
     @Then("^the results match the criteria$")
     public void resultsMatchTheCriteria(){
-        System.out.println("Then");
+//        Assertions.assertEquals("Lionel Messi", google.firstResult());
+        System.out.println(google.firstResult());
+        Assertions.assertTrue(google.firstResult().contains("Spotify"));
+
     };
 }

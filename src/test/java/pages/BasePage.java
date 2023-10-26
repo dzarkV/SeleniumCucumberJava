@@ -37,13 +37,17 @@ public class BasePage {
         dropdown.selectByValue(valueToSelect);
     }
 
-    public static void selectFromDropdownByText(String xpath, String valueToSelect){
-        Select dropdown = new Select(findElement(xpath));
-        dropdown.selectByVisibleText(valueToSelect);
-    }
+//    public static void selectFromDropdownByText(String xpath, String valueToSelect){
+//        Select dropdown = new Select(findElement(xpath));
+//        dropdown.selectByVisibleText(valueToSelect);
+//    }
+//
+//    public static void selectFromDropdownByIndex(String xpath, int valueToSelect){
+//        Select dropdown = new Select(findElement(xpath));
+//        dropdown.selectByIndex(valueToSelect);
+//    }
 
-    public static void selectFromDropdownByIndex(String xpath, int valueToSelect){
-        Select dropdown = new Select(findElement(xpath));
-        dropdown.selectByIndex(valueToSelect);
+    public static String textFromElement(String xpath) {
+        return findElement(xpath).getText();
     }
 }
