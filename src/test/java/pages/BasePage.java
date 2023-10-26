@@ -13,41 +13,44 @@ import static pages.SetDriver.driver;
 
 public class BasePage {
 
-    private static WebDriverWait wait;
-    public static void navigateTo(String url){
+    public void navigateTo(String url){
         driver.get(url);
     }
 
-    private static WebElement findElement(String locator){
-        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+    private WebElement findElement(String locator){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         return wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(locator)));
     }
 
-    public static void clickElement(String xpath){
-        findElement(xpath).click();
+    public void clickElement(String locator){
+        findElement(locator).click();
     }
 
-    public void writer(String xpath, String textToWrite){
-        findElement(xpath).clear();
-        findElement(xpath).sendKeys(textToWrite);
+    public void writer(String locator, String textToWrite){
+        findElement(locator).clear();
+        findElement(locator).sendKeys(textToWrite);
     }
 
-    public static void selectFromDropdownByValue(String xpath, String valueToSelect){
-        Select dropdown = new Select(findElement(xpath));
+    public void selectFromDropdownByValue(String locator, String valueToSelect){
+        Select dropdown = new Select(findElement(locator));
         dropdown.selectByValue(valueToSelect);
     }
 
-//    public static void selectFromDropdownByText(String xpath, String valueToSelect){
-//        Select dropdown = new Select(findElement(xpath));
+//    public static void selectFromDropdownByText(String locator, String valueToSelect){
+//        Select dropdown = new Select(findElement(locator));
 //        dropdown.selectByVisibleText(valueToSelect);
 //    }
 //
-//    public static void selectFromDropdownByIndex(String xpath, int valueToSelect){
-//        Select dropdown = new Select(findElement(xpath));
+//    public static void selectFromDropdownByIndex(String locator, int valueToSelect){
+//        Select dropdown = new Select(findElement(locator));
 //        dropdown.selectByIndex(valueToSelect);
 //    }
 
-    public static String textFromElement(String xpath) {
-        return findElement(xpath).getText();
+    public boolean elementIsSelected(String locator){
+        return findElement(locator).isSelected();
+    }
+
+    public String textFromElement(String locator) {
+        return findElement(locator).getText();
     }
 }
