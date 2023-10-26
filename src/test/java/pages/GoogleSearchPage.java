@@ -11,8 +11,8 @@ public class GoogleSearchPage extends BasePage {
 
     private final String firstResult = "//*[@id='search']/descendant::a/child::h3[1]";
 
-    public void navigateToGoogleSearch(){
-        navigateTo("https://www.google.com");
+    public void navigateToGoogleSearch(String url){
+        navigateTo(url);
     }
 
     public void enterCriteriaTextInSearchField(String criteria){

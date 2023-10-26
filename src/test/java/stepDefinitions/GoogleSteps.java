@@ -10,7 +10,7 @@ public class GoogleSteps {
     GoogleSearchPage google = new GoogleSearchPage();
     @Given("^I am on the Google search page$")
     public void navigateToGoogleSearchPage(){
-        google.navigateToGoogleSearch();
+        google.navigateToGoogleSearch("https://www.google.com");
     }
 
     @When("^I enter a search criteria$")
