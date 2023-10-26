@@ -11,20 +11,20 @@ public class GoogleSteps {
     @Given("^I am on the Google search page$")
     public void navigateToGoogleSearchPage(){
         google.navigateToGoogleSearch();
-    };
+    }
+
     @When("^I enter a search criteria$")
     public void enterSearchCriteria(){
-        google.enterCriteriaTextInSearchField("Spotify");
-    };
+        google.enterCriteriaTextInSearchField("Musiquita en spoti");
+    }
+
     @And("^click on the search button$")
     public void clickOnTheSearchButton(){
         google.clickSearchButton();
-    };
+    }
     @Then("^the results match the criteria$")
     public void resultsMatchTheCriteria(){
-//        Assertions.assertEquals("Lionel Messi", google.firstResult());
         System.out.println(google.firstResult());
         Assertions.assertTrue(google.firstResult().contains("Spotify"));
-
-    };
+    }
 }
